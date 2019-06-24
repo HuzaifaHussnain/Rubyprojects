@@ -56,6 +56,16 @@ def signout
   redirect_to users_url
 end
 
+def delete_user
+  if session[:user_email]
+    User.find_by(email: session[:user_email]).delete
+
+    redirect_to users_url
+  else
+    redirect_to users_url
+end
+end
+
 
 private
   def login_params

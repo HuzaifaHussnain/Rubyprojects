@@ -2,5 +2,6 @@
 
 <h2> Welcome to Facebook <%=@user.first_name %></h2>
 <%= link_to "Signout", users_signout_url, method: :get %>
+<%= link_to "Delete Account", users_delete_user_url, method: :delete %>
 
 
