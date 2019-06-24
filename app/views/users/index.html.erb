@@ -1,0 +1,39 @@
+<% if @login_user && @login_user.errors.any? %>
+    <% @login_user.errors.full_messages.each do |msg| %>
+
+      <%= msg %></br>
+<% end %>
+<% end %>
+
+
+
+<% if @user && @user.errors.any? %>
+    <% @user.errors.full_messages.each do |msg| %>
+
+      <%= msg %></br>
+<% end %>
+<% end %>
+
+<h1> Facebook
+
+<!-- login form-->
+<%= form_for :login_user, url: {action: "login" } do |f| %>
+<%= f.email_field :email, required: "true" , placeholder: 'Email'%>
+<%= f.password_field :password, required: "true", placeholder: 'Password' %>
+<%= f.submit "Login" %>
+  <% end %>
+
+<!-- Sign up Form-->
+<div class="Sign_Form">
+  <h1>Sign Up</h1>
+  <%= form_for :user, url: {action: "create" } do |f| %>
+    <p> First Name: <%= f.text_field :first_name, required: true%> </p>
+    <p> Last Name: <%= f.text_field :last_name, required: true%> </p>
+    <p> Email: <%= f.email_field :email, required: true%> </p>
+    <p> Password: <%= f.password_field :password, required: true%></p>
+    <p> Confirm Password: <%= f.password_field :password_confirmation, required: true%> </p>
+    <%= f.submit :Signup %>
+  <% end %>
+</div>
+
+</h1>
